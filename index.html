@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <style>
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      .body-color {
+        color: red;
+        background-color: #007bff;
+      }
+
+      /* Button used to open the chat form - fixed at the bottom of the page */
+      .open-button {
+        background-color: rgb(98, 189, 105);
+        color: white;
+        padding: 16px 20px;
+        cursor: pointer;
+        opacity: 0.8;
+        position: fixed;
+        bottom: 23px;
+        right: 28px;
+        border-radius: 50%;
+      }
+
+      /* The popup chat - hidden by default */
+      .chat-popup {
+        display: none;
+        position: fixed;
+        bottom: 0;
+        right: 15px;
+        border: 3px solid #f1f1f1;
+        z-index: 9;
+        min-height: 400px;
+      }
+
+      .chat-header {
+        min-height: 50px;
+        background-color: greenyellow;
+      }
+
+      .msg-display {
+        background-color: honeydew;
+        margin: 5px 0 22px 0;
+      }
+
+      .msg-box {
+        min-height: 200px;
+      }
+
+      /* Add styles to the form container */
+      .form-container {
+        max-width: 300px;
+        padding: 10px;
+        background-color: white;
+      }
+
+      /* Full-width textarea */
+      .form-container textarea {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 22px 0;
+        border: none;
+        background: #f1f1f1;
+      }
+
+      /* When the textarea gets focus, do something */
+      .form-container textarea:focus {
+        background-color: #ddd;
+        outline: none;
+      }
+
+      /* Set a style for the submit/send button */
+      .form-container .btn {
+        background-color: #4caf50;
+        color: white;
+        padding: 16px 20px;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 10px;
+        opacity: 0.8;
+      }
+
+      /* Add a red background color to the cancel button */
+      .form-container .cancel {
+        background-color: red;
+      }
+
+      /* Add some hover effects to buttons */
+      .form-container .btn:hover,
+      .open-button:hover {
+        opacity: 1;
+      }
+
+      .cancel {
+        background-color: greenyellow;
+      }
+    </style>
+
+    <script src="https://kit.fontawesome.com/392c2138b3.js"></script>
+  </head>
+
+  <body>
+    <h2>Online Support System<sub> Like revechat.com</sub></h2>
+    <label for="msg"><b></b></label>
+
+    <button class="open-button" onclick="openForm()">
+      <i class="fas fa-envelope-open-text"></i>
+    </button>
+
+    <div class="chat-popup" id="myForm">
+      <div class="chat-header">
+        <label><b>Live Chat</b></label>
+        <button class="btn cancel" style="float:right;" onclick="closeForm()">
+          <i class="fa fa-window-minimize"></i>
+        </button>
+      </div>
+
+      <form action="#007" class="form-container" id="msg-send">
+        <div class="msg-box">
+          <label class="msg-display" style="float:left;"
+            >Hi, Sir. How can I assist you?</label
+          >
+          <label class="msg-display" style="float:right;"
+            >Hello. I need some help</label
+          >
+        </div>
+        <textarea
+          placeholder="Type message.."
+          name="msg"
+          rows="1"
+          required
+        ></textarea>
+
+        <button type="submit" class="btn">
+          Send
+        </button>
+      </form>
+    </div>
+
+    <script>
+      function openForm() {
+        document.getElementById("myForm").style.display = "block";
+      }
+
+      function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
